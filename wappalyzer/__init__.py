@@ -31,6 +31,8 @@ class Wappalyzer(object):
 
         response = requests.get(
             url=url,
+            allow_redirects=True,
+            timeout = 10,
             headers={'User-Agent': user_agent or settings.USER_AGENT}
         )
         return self.analyze_from_data(
